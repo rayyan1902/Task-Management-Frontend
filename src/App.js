@@ -12,7 +12,7 @@ const App = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('https://task-management-backend-blue.vercel.app/api/tasks');
+      const response = await axios.get('https://task-management-backend-api.onrender.com/api/tasks');
       setTasks(response.data);
     } catch (error) {
       console.error(error);
@@ -21,7 +21,7 @@ const App = () => {
 
   const addTask = async () => {
     try {
-      const response = await axios.post('https://task-management-backend-blue.vercel.app/api/tasks', newTask);
+      const response = await axios.post('https://task-management-backend-api.onrender.com/api/tasks', newTask);
       setTasks([...tasks, response.data]);
       setNewTask({ title: '', description: '' });
     } catch (error) {
@@ -31,7 +31,7 @@ const App = () => {
 
   const updateTaskStatus = async (id, status) => {
     try {
-      await axios.put(`https://task-management-backend-blue.vercel.app/api/tasks/${id}`, { status });
+      await axios.put(`https://task-management-backend-api.onrender.com/api/tasks/${id}`, { status });
       fetchTasks();
     } catch (error) {
       console.error(error);
@@ -40,7 +40,7 @@ const App = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`https://task-management-backend-blue.vercel.app/api/tasks/${id}`);
+      await axios.delete(`https://task-management-backend-api.onrender.com/api/tasks/${id}`);
       fetchTasks();
     } catch (error) {
       console.error(error);
